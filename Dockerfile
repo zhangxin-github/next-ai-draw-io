@@ -9,6 +9,8 @@ WORKDIR /app
 COPY package.json package-lock.json* ./
 
 # Install dependencies
+ENV ELECTRON_MIRROR="https://npmmirror.com/mirrors/electron/"
+RUN npm config set registry https://registry.npmmirror.com
 RUN npm install
 
 # Stage 2: Build application
